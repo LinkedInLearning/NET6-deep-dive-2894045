@@ -7,8 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lambdas", "Lambdas", "{EFAC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleConsoleNet6", "SimpleConsoleNet6\SimpleConsoleNet6.csproj", "{04F15A38-368F-4A42-9312-7B31648C99A4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleConsoleNet5", "SimpleConsoleNet5\SimpleConsoleNet5.csproj", "{A9800544-FCC7-41E5-9027-0F7660CFD5C8}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,10 +17,6 @@ Global
 		{04F15A38-368F-4A42-9312-7B31648C99A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04F15A38-368F-4A42-9312-7B31648C99A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04F15A38-368F-4A42-9312-7B31648C99A4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A9800544-FCC7-41E5-9027-0F7660CFD5C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A9800544-FCC7-41E5-9027-0F7660CFD5C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A9800544-FCC7-41E5-9027-0F7660CFD5C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A9800544-FCC7-41E5-9027-0F7660CFD5C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -14,9 +14,9 @@ namespace SimpleConsole.Examples {
 
 			//	var printMessage2 = s => Console.WriteLine("Hello");
 
+			
 			// can also infer the return type
 			
-
 			var getTotal = (float a, float b) => a + b;
 
 			Console.WriteLine(getTotal(12.1f, 14.2f));
