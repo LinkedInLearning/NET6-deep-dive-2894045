@@ -8,12 +8,9 @@ namespace SimpleConsole.Examples
 {
 	internal class Example1
 	{
-		internal void DemoStringLiteral()
+		internal void InferTypeFromLambda()
 		{
-			const string w1 = "Please sign into your account";
-			const string w2 = "Marcus";
-
-			var message = $"{w1} {w2}"; // compiler knows these strings are literals
+			var showMessage = (int x, int y) => Console.WriteLine(x + y);
 		}
 	}
 
