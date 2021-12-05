@@ -23,8 +23,8 @@ namespace SimpleConsole
 
 
 			var concatenized = $"Your order of {pizza1} and {pizza2} is ready.";
-			
-			
+
+			//var concat2 = String.Concat();
 			int x = 5; int y = 7;
 			var s1 = $"Your numbers are {x} and {y}";
 
