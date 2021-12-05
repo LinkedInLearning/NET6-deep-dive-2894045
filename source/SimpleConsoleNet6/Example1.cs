@@ -8,7 +8,7 @@ namespace SimpleConsole.Examples {
 	internal class Example1 {
 		internal static void InferTypeFromLambda() {
 
-			var printMessage1 = (int x, int y) => Console.WriteLine(x + y);
+			Action<int,int> printMessage1 = (int x, int y) => Console.WriteLine(x + y);
 
 			printMessage1(3, 4);
 
