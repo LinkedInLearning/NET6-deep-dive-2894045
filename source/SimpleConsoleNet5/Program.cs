@@ -13,9 +13,9 @@ namespace SimpleConsole
 			// C# compiler rewrites string interpolation in different ways
 			// // depending on the context.
 
-		// see examples in class files in this project
-		// and the .NET 6 project
+			// see examples in class files in this project
+			// and the .NET 6 project
 		}
-	
+
 	}
 }
