@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleConsole", "SimpleConsole\SimpleConsole.csproj", "{35109147-5A58-4300-B4F9-42EB9C15BED6}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BigStarLib", "BigStarLib\BigStarLib.csproj", "{985C3010-DDE0-4598-A1CB-AC4D0ADC51E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleConsoleNet5", "SimpleConsole\SimpleConsoleNet5.csproj", "{35109147-5A58-4300-B4F9-42EB9C15BED6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StringInterpolation", "StringInterpolation", "{EFAC3FE1-B010-4BA7-BB86-ED942D8C6E5D}"
 EndProject
@@ -21,10 +19,6 @@ Global
 		{35109147-5A58-4300-B4F9-42EB9C15BED6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35109147-5A58-4300-B4F9-42EB9C15BED6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35109147-5A58-4300-B4F9-42EB9C15BED6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{985C3010-DDE0-4598-A1CB-AC4D0ADC51E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{985C3010-DDE0-4598-A1CB-AC4D0ADC51E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{985C3010-DDE0-4598-A1CB-AC4D0ADC51E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{985C3010-DDE0-4598-A1CB-AC4D0ADC51E1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{04F15A38-368F-4A42-9312-7B31648C99A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{04F15A38-368F-4A42-9312-7B31648C99A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04F15A38-368F-4A42-9312-7B31648C99A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
