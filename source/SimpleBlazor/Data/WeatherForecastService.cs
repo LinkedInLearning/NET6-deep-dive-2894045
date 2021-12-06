@@ -6,8 +6,11 @@ namespace SimpleBlazor.Data {
 		};
 
 		public Task<WeatherForecast[]> GetForecastAsync(DateTime startDate) {
+
+		//	throw new DataMisalignedException("Data is incorrect size");
 			return Task.FromResult(Enumerable.Range(1, 5).Select(index => new WeatherForecast
 			{
+				
 				Date = startDate.AddDays(index),
 				TemperatureC = Random.Shared.Next(-20, 55),
 				Summary = Summaries[Random.Shared.Next(Summaries.Length)]
