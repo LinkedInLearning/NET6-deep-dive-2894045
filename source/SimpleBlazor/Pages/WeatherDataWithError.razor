@@ -7,42 +7,53 @@
 
 <h1>Weather forecast</h1>
 
-<p>This component demonstrates fetching data from a service.</p>
+<p>This component demonstrates using Error Boundary in a component</p>
 
 @if (forecasts == null)
 {
-    <p><em>Loading...</em></p>
+	<p><em>Loading...</em></p>
 }
 else
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var forecast in forecasts)
-            {
-                <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Date</th>
+				<th>Temp. (C)</th>
+				<th>Temp. (F)</th>
+				<th>Summary</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var forecast in forecasts)
+			{
+				<ErrorBoundary @key="@forecast">
+					<ChildContent>
+						<tr>
+							@if (forecast.Summary =="Chilly")
+							{
+								throw new InvalidDataException("The weather service cannot get the data");
+							}
+							<td>@forecast.Date.ToShortDateString()</td>
+							<td>@forecast.TemperatureC</td>
+							<td>@forecast.TemperatureF</td>
+							<td>@forecast.Summary</td>
+						</tr>
+					</ChildContent>
+					<ErrorContent>
+						<tr><td>Cannot show data for @forecast.Date.ToLongDateString()</td><td></td><td></td><td></td></tr>
+					</ErrorContent>
+				</ErrorBoundary>
+
+			}
+		</tbody>
+	</table>
 }
 
 @code {
-    private WeatherForecast[]? forecasts;
+	private WeatherForecast[]? forecasts;
 
-    protected override async Task OnInitializedAsync()
-    {
-        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
-    }
+	protected override async Task OnInitializedAsync() {
+		forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+	}
 }
