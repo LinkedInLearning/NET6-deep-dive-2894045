@@ -5,7 +5,9 @@ VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JsonStreaming", "JsonStreaming", "{70243610-3D12-4B4B-919C-B18D50D45E0B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleApi5", "SimpleApi\SimpleApi5.csproj", "{C02657B7-6909-45C5-9F48-2E20D0B6B5FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleApi6", "SimpleApi6\SimpleApi6.csproj", "{95ACB6DD-9ACB-4D6A-88CD-37B635ECC978}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleApi5", "SimpleApi5\SimpleApi5.csproj", "{F63D6BE4-0679-482C-821D-F31DB9F1D0EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,10 +15,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C02657B7-6909-45C5-9F48-2E20D0B6B5FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C02657B7-6909-45C5-9F48-2E20D0B6B5FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C02657B7-6909-45C5-9F48-2E20D0B6B5FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C02657B7-6909-45C5-9F48-2E20D0B6B5FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95ACB6DD-9ACB-4D6A-88CD-37B635ECC978}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95ACB6DD-9ACB-4D6A-88CD-37B635ECC978}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95ACB6DD-9ACB-4D6A-88CD-37B635ECC978}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95ACB6DD-9ACB-4D6A-88CD-37B635ECC978}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F63D6BE4-0679-482C-821D-F31DB9F1D0EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F63D6BE4-0679-482C-821D-F31DB9F1D0EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F63D6BE4-0679-482C-821D-F31DB9F1D0EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F63D6BE4-0679-482C-821D-F31DB9F1D0EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
