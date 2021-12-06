@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JsonStreaming", "JsonStream
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleApi6", "SimpleApi6\SimpleApi6.csproj", "{95ACB6DD-9ACB-4D6A-88CD-37B635ECC978}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleApi5", "SimpleApi5\SimpleApi5.csproj", "{F63D6BE4-0679-482C-821D-F31DB9F1D0EA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleApi5", "SimpleApi5\SimpleApi5.csproj", "{36BCECB4-0588-40DE-9B1C-2C639FDE5D0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +19,10 @@ Global
 		{95ACB6DD-9ACB-4D6A-88CD-37B635ECC978}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95ACB6DD-9ACB-4D6A-88CD-37B635ECC978}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95ACB6DD-9ACB-4D6A-88CD-37B635ECC978}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F63D6BE4-0679-482C-821D-F31DB9F1D0EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F63D6BE4-0679-482C-821D-F31DB9F1D0EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F63D6BE4-0679-482C-821D-F31DB9F1D0EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F63D6BE4-0679-482C-821D-F31DB9F1D0EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36BCECB4-0588-40DE-9B1C-2C639FDE5D0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36BCECB4-0588-40DE-9B1C-2C639FDE5D0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36BCECB4-0588-40DE-9B1C-2C639FDE5D0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36BCECB4-0588-40DE-9B1C-2C639FDE5D0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
