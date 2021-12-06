@@ -3,15 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ErrorBoundaries", "ErrorBoundaries", "{70243610-3D12-4B4B-919C-B18D50D45E0B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JsonStreaming", "JsonStreaming", "{70243610-3D12-4B4B-919C-B18D50D45E0B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleRazorApp", "SimpleRazorApp\SimpleRazorApp.csproj", "{C004AB08-8EFD-4E76-868D-9F5D9E5CE6E6}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleBlazor", "SimpleBlazor\SimpleBlazor.csproj", "{7A8AF473-E35F-4771-BCC3-BAB147510F5B}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleBlazorClientSide", "SimpleBlazorClientSide\SimpleBlazorClientSide.csproj", "{45FA37FA-EE21-4E3C-9FD1-7CE0E83EA47C}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleApi", "SimpleApi\SimpleApi.csproj", "{C02657B7-6909-45C5-9F48-2E20D0B6B5FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleApi5", "SimpleApi\SimpleApi5.csproj", "{C02657B7-6909-45C5-9F48-2E20D0B6B5FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,18 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C004AB08-8EFD-4E76-868D-9F5D9E5CE6E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C004AB08-8EFD-4E76-868D-9F5D9E5CE6E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C004AB08-8EFD-4E76-868D-9F5D9E5CE6E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C004AB08-8EFD-4E76-868D-9F5D9E5CE6E6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7A8AF473-E35F-4771-BCC3-BAB147510F5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7A8AF473-E35F-4771-BCC3-BAB147510F5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7A8AF473-E35F-4771-BCC3-BAB147510F5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7A8AF473-E35F-4771-BCC3-BAB147510F5B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{45FA37FA-EE21-4E3C-9FD1-7CE0E83EA47C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{45FA37FA-EE21-4E3C-9FD1-7CE0E83EA47C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{45FA37FA-EE21-4E3C-9FD1-7CE0E83EA47C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{45FA37FA-EE21-4E3C-9FD1-7CE0E83EA47C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C02657B7-6909-45C5-9F48-2E20D0B6B5FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C02657B7-6909-45C5-9F48-2E20D0B6B5FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C02657B7-6909-45C5-9F48-2E20D0B6B5FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
