@@ -23,11 +23,11 @@ if (app.Environment.IsDevelopment())
 
 // or refactor into other classes (when api grows).
 
-app.MapGet (pattern: "api/GetAll",handler: ([FromServices] ToDoRepository repo) => {
+app.MapGet (pattern: "todo-list",handler: ([FromServices] ToDoRepository repo) => {
 	return repo.GetAll().ToAsyncEnumerable<ToDoItem>();
 });
 
-app.MapGet(pattern: "api/GetById{id}", handler: ([FromServices] ToDoRepository repo, long id) => {
+app.MapGet(pattern: "todo-list/{id}", handler: ([FromServices] ToDoRepository repo, long id) => {
 	var toDoItem = repo.GetById(id);
 	return toDoItem is not null ? Results.Ok(toDoItem) : Results.NotFound();
 });
