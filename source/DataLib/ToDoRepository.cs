@@ -39,6 +39,10 @@ namespace DataLib.Data {
 			return _toDoList.Values.ToList();
 		}
 		public ToDoItem GetById(long id) {
+			if (_toDoList.ContainsKey(id)==false)
+			{
+				return null;
+			}
 			return _toDoList[id];
 		}
 
