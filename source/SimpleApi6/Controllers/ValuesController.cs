@@ -6,6 +6,10 @@ namespace SimpleApi6.Controllers {
 	[ApiController]
 	public class ValuesController : ControllerBase {
 		[HttpGet]
+
+		// defaults to sending data as JSON
+		// Response header: Content-Type: application/json; 
+
 		public IAsyncEnumerable<int> Get() {
 			IAsyncEnumerable<int> value = GetData();
 			return value;
