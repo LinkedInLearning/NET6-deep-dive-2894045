@@ -1,4 +1,4 @@
-using SimpleFullApi.Data;
+using DataLib.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

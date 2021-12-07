@@ -1,40 +1,59 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SimpleFullApi.Data;
-using SimpleFullApi.Models;
-
+using DataLib.Data;
+using DataLib.Models;
+using System.Linq;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace SimpleFullApi.Controllers {
-	[Route("api/[controller]")]
-	[ApiController]
-	public class ToDo : ControllerBase {
-		// GET: api/<ToDo>
-		[HttpGet]
-		public Dictionary<long, SimpleFullApi.Models.ToDoItem> Get([FromServices] ToDoRepository repo) {
+namespace SimpleFullApi.Controllers;
 
-			return repo.GetAll();
-	
-		}
+[Route("api/[controller]")]
+[ApiController]
+public class ToDo : ControllerBase
+{
+  // GET: api/<ToDo>
+  [HttpGet]
+  public IAsyncEnumerable<ToDoItem> Get([FromServices] ToDoRepository repo)
+  {
 
-		// GET api/<ToDo>/5
-		[HttpGet("{id}")]
-		public ToDoItem Get(long id, [FromServices] ToDoRepository repo) {
-			return repo.GetById(id);
-		}
+    return repo.GetAll().ToAsyncEnumerable<ToDoItem>();
 
-		// POST api/<ToDo>
-		[HttpPost]
-		public void Post([FromBody] string value) {
-		}
+  }
 
-		// PUT api/<ToDo>/5
-		[HttpPut("{id}")]
-		public void Put(int id, [FromBody] string value) {
-		}
+  // GET api/<ToDo>/5
+  [HttpGet("{id}")]
+  public IResult Get(long id, [FromServices] ToDoRepository repo)
+  {
+    var toDoItem = repo.GetById(id);
+    return toDoItem is not null ? Results.Ok(toDoItem) : Results.NotFound();
+  }
 
-		// DELETE api/<ToDo>/5
-		[HttpDelete("{id}")]
-		public void Delete(int id) {
-		}
-	}
+  // POST api/<ToDo> Create
+  [HttpPost]
+  public IResult Post([FromServices] ToDoRepository repo, ToDoItem item)
+  {
+    repo.Create(item);
+    return Results.Created($"api/ToDo/{item.Id}", item);
+  }
+
+  // PUT api/<ToDo>/5
+  [HttpPut("{id}")]
+  public IResult Put([FromServices] ToDoRepository repo, long id,ToDoItem updatedItem)
+  {
+    var toDoItem = repo.GetById(id);
+    if (updatedItem is null)
+    {
+      return Results.NotFound();
+    }
+    repo.Update(updatedItem);  
+    return Results.Ok (updatedItem);
+  }
+
+  // DELETE api/<ToDo>/5
+  [HttpDelete("{id}")]
+  public IResult Delete([FromServices] ToDoRepository repo,long id)
+  {
+    repo.Delete(id);
+    return Results.Ok();
+  }
 }
+

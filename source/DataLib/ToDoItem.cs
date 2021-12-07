@@ -1,4 +1,4 @@
-﻿namespace SimpleFullApi.Models;
+﻿namespace DataLib.Models;
 
 public record ToDoItem {
 	public long Id { get; set; }
