@@ -31,5 +31,15 @@ app.MapGet(pattern: "api/GetById{id}", handler: ([FromServices] ToDoRepository r
 	var toDoItem = repo.GetById(id);
 	return toDoItem is not null ? Results.Ok(toDoItem) : Results.NotFound();
 });
-app.Run();
 
+app.MapPost( "api/GetById{id}",  ([FromServices] ToDoRepository repo, ToDoItem item) => {
+	repo.Create(item);
+	return Results.Created($"api/ToDo/{item.Id}", item);
+});
+
+app.MapPut("api/GetById{id}", ([FromServices] ToDoRepository repo, ToDoItem item) => {
+	repo.Create(item);
+	return Results.Created($"api/ToDo/{item.Id}", item);
+});
+
+app.Run();
