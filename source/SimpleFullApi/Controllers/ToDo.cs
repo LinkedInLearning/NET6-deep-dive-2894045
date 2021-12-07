@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SimpleFullApi.Data;
+using SimpleFullApi.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,14 +10,16 @@ namespace SimpleFullApi.Controllers {
 	public class ToDo : ControllerBase {
 		// GET: api/<ToDo>
 		[HttpGet]
-		public IEnumerable<string> Get() {
-			return new string[] { "value1", "value2" };
+		public Dictionary<long, SimpleFullApi.Models.ToDoItem> Get([FromServices] ToDoRepository repo) {
+
+			return repo.GetAll();
+	
 		}
 
 		// GET api/<ToDo>/5
 		[HttpGet("{id}")]
-		public string Get(int id) {
-			return "value";
+		public ToDoItem Get(long id, [FromServices] ToDoRepository repo) {
+			return repo.GetById(id);
 		}
 
 		// POST api/<ToDo>
