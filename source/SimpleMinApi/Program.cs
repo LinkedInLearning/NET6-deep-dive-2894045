@@ -19,8 +19,7 @@ if (app.Environment.IsDevelopment())
 }
 
 
-// add minimal API code here...
-
+// add minimal API code here..
 // or refactor into other classes (when api grows).
 
 app.MapGet (pattern: "/todo-list",handler: ([FromServices] ToDoRepository repo) => {
@@ -47,4 +46,9 @@ app.MapPut("/todo-list/{id}", ([FromServices] ToDoRepository repo, long id, ToDo
 	return Results.Ok(updatedItem);
 });
 
+app.MapDelete("/todo-list/{id}", ([FromServices] ToDoRepository repo, long id) =>
+{
+	repo.Delete(id);
+	return Results.Ok();
+});
 app.Run();
