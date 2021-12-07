@@ -44,7 +44,7 @@ public class ToDo : ControllerBase
     {
       return Results.NotFound();
     }
-    repo.Update(updatedItem);  
+    repo.Update(id,updatedItem);  
     return Results.Ok (updatedItem);
   }
 

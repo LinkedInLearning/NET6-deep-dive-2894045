@@ -25,8 +25,8 @@ namespace DataLib.Data {
 			}
 			_toDoList.Add(item.Id, item);
 		}
-		public void Update(ToDoItem item) {
-			if (_toDoList.ContainsKey(item.Id))
+		public void Update(long id,  ToDoItem item) {
+			if (_toDoList.ContainsKey(id))
 			{
 				_toDoList[item.Id] = item;
 

@@ -23,23 +23,28 @@ if (app.Environment.IsDevelopment())
 
 // or refactor into other classes (when api grows).
 
-app.MapGet (pattern: "api/GetAll",handler: ([FromServices] ToDoRepository repo) => {
+app.MapGet (pattern: "/todo-list",handler: ([FromServices] ToDoRepository repo) => {
 	return repo.GetAll().ToAsyncEnumerable<ToDoItem>();
 });
 
-app.MapGet(pattern: "api/GetById{id}", handler: ([FromServices] ToDoRepository repo, long id) => {
+app.MapGet(pattern: "/todo-list/{id}", handler: ([FromServices] ToDoRepository repo, long id) => {
 	var toDoItem = repo.GetById(id);
 	return toDoItem is not null ? Results.Ok(toDoItem) : Results.NotFound();
 });
 
-app.MapPost( "api/GetById{id}",  ([FromServices] ToDoRepository repo, ToDoItem item) => {
+app.MapPost( "/todo-list",  ([FromServices] ToDoRepository repo, ToDoItem item) => {
 	repo.Create(item);
-	return Results.Created($"api/ToDo/{item.Id}", item);
+	return Results.Created($"/todo-list/{item.Id}", item);
 });
 
-app.MapPut("api/GetById{id}", ([FromServices] ToDoRepository repo, ToDoItem item) => {
-	repo.Create(item);
-	return Results.Created($"api/ToDo/{item.Id}", item);
+app.MapPut("/todo-list/{id}", ([FromServices] ToDoRepository repo, long id, ToDoItem updatedItem) => {
+	var toDoItem = repo.GetById(id);
+	if (updatedItem is null)
+	{
+		return Results.NotFound();
+	}
+	repo.Update(id, updatedItem);
+	return Results.Ok(updatedItem);
 });
 
 app.Run();
