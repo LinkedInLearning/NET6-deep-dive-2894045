@@ -3,7 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MinAPI", "MinAPI", "{FBCF945B-6A9A-4ACE-90C4-3A67F66482B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleFullApi", "SimpleFullApi\SimpleFullApi.csproj", "{8FF85CCD-B234-4739-8167-C12620547731}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMinApi", "SimpleMinApi\SimpleMinApi.csproj", "{EA222BA5-18C4-494B-AF55-9C3637E49768}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8FF85CCD-B234-4739-8167-C12620547731}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FF85CCD-B234-4739-8167-C12620547731}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FF85CCD-B234-4739-8167-C12620547731}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FF85CCD-B234-4739-8167-C12620547731}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA222BA5-18C4-494B-AF55-9C3637E49768}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA222BA5-18C4-494B-AF55-9C3637E49768}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA222BA5-18C4-494B-AF55-9C3637E49768}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA222BA5-18C4-494B-AF55-9C3637E49768}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
