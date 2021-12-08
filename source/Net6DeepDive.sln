@@ -5,7 +5,19 @@ VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SingleFile", "SingleFile", "{12ACDE1F-8092-4B87-B7F9-DDE37D9A5BE8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PixelSmith", "PixelSmith\PixelSmith.csproj", "{7339D74B-6836-4C44-82CF-BB827B0AF1DF}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7339D74B-6836-4C44-82CF-BB827B0AF1DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7339D74B-6836-4C44-82CF-BB827B0AF1DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7339D74B-6836-4C44-82CF-BB827B0AF1DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7339D74B-6836-4C44-82CF-BB827B0AF1DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
