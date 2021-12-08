@@ -1,30 +1,32 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
-DoWork("hello", 5);
-DoBetterWork("goodbye", 7);
-// DoBetterWork(null, 7);
+PrintPrettyLine("*", 40);
+PrintColorLine("~", 7, ConsoleColor.Yellow);
+PrintColorLine(null, 7, ConsoleColor.Yellow);
 
 
-static void DoWork(string message, int count) {
-	if (message is null)
+static void PrintPrettyLine(string lineChars, int count) {
+	if (lineChars is null)
 	{
-		throw new ArgumentNullException(nameof(message));
+		throw new ArgumentNullException( nameof(lineChars));
 	}
-
+	
 	for (int counter = 0; counter < count; counter++)
 	{
-		Console.WriteLine(message);
+		Console.Write(lineChars);
+		Console.WriteLine();
 	}
 }
 
-static void DoBetterWork(string message, int count) {
-	ArgumentNullException.ThrowIfNull(message);
-	// ArgumentNullException.ThrowIfNull(message);
+static void PrintColorLine(string lineChars, int count, ConsoleColor color) {
+	ArgumentNullException.ThrowIfNull(lineChars);
+	 ArgumentNullException.ThrowIfNull(lineChars);
 
 	for (int counter = 0; counter < count; counter++)
 	{
-		Console.WriteLine(message);
+		Console.Write(lineChars);
+		Console.WriteLine();
 	}
 }
 
