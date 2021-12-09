@@ -16,7 +16,7 @@ class Program
     // each queue item is assigned a priority level when added to the queue.
     // specify a priority type when creating the PriorityQueue
     // highest priority (lower number) items are removed first
-    // note: is not threadsafe
+    // note: is not thread-safe
 
     var foodQueue = new PriorityQueue<string, int>();
 
