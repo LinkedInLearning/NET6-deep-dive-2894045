@@ -13,10 +13,14 @@ class Program
   {
     Console.WriteLine("Example 1 - Priority Queue");
     // a new class PriorityQueue
-    // each queue item is assigned a priority level when added to the queue.
+    // assign a priority level when added to the queue.
     // specify a priority type when creating the PriorityQueue
-    // highest priority (lower number) items are removed first
+    // highest priority (determined by the types Comparer) items are removed first
+
     // note: is not thread-safe
+    // note, cannot change priority of item is enqueued.
+    // note: Is not "stable", no guarantee
+    // that two items with same priority are removed in original order 
 
     var foodQueue = new PriorityQueue<string, int>();
 
@@ -31,7 +35,7 @@ class Program
     while (foodQueue.TryDequeue(out var food, out var level)) {
       Console.WriteLine($"{food}, {level}");
     }
-   // note, cannot change priority one item is enqueued.
+
 
   }
   static void Example2()
