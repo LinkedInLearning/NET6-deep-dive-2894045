@@ -54,7 +54,6 @@ class Program
 
  
     myList.EnsureCapacity(500);
-
     myStack.EnsureCapacity(500);
     myQueue.EnsureCapacity(500);
 
@@ -63,7 +62,7 @@ class Program
     var myHashSet = new HashSet<int>();
     myHashSet.EnsureCapacity(500);
 
-    C
+    
 
   }
 
