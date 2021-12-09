@@ -6,7 +6,7 @@ class Program
   {
     //Example1();
     //Example2();
-    Example3();
+     Example3();
 
   }
   static void Example1()
@@ -38,17 +38,17 @@ class Program
 
     IEnumerable<int[]> subset = numbers.Chunk(chunkSize);
 
-      Parallel.ForEach(subset, (s) =>
+      Parallel.ForEach(subset, (subs) =>
       {
         // provide a thread safe Random instance
         var ran = Random.Shared;
 
-        foreach (int numb in s)
+        foreach (int s in subs)
         {
           var spacer = new string(' ', System.Environment.CurrentManagedThreadId % 4);
           Task.Delay(ran.Next(200,700)).Wait();
          
-          Console.WriteLine($"{spacer}ThreadID: \t{System.Environment.CurrentManagedThreadId:D2} \t {numb}");
+          Console.WriteLine($"{spacer}ThreadID: \t{System.Environment.CurrentManagedThreadId:D2} \t {s}");
         }
 
       });
@@ -66,18 +66,26 @@ class Program
 
 
     // creates a sequence of tuples
+    var zipped1 = lowers.Zip(numbers);
     //.NET 6 adds a third source.
-    var zipped1 = lowers.Zip(numbers, uppers);
+    var zipped2 = lowers.Zip(numbers, uppers);
 
-    Console.WriteLine("Zipped1");
-    var zipped2 = numbers.Zip(lowers, uppers);
+    
+    var zipped3 = numbers.Zip(lowers, uppers);
 
+    Console.WriteLine("(lowers, numbers)");
     foreach (var item in zipped1)
     {
       Console.WriteLine(item);
     }
-    Console.WriteLine("Zipped1");
+    Console.WriteLine("(lowers, numbers, uppers)");
     foreach (var item in zipped2)
+    {
+      Console.WriteLine(item);
+    }
+    Console.WriteLine("");
+    Console.WriteLine("(numbers, lowers, uppers)");
+    foreach (var item in zipped3)
     {
       Console.WriteLine(item);
     }
