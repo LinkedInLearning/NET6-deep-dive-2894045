@@ -1,6 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 namespace SimpleConsole;
 class Program {
+	static int counter = 0;
+	static System.Threading.Timer _timer;
+	static Random _ran = Random.Shared;
 	static async Task Main() {
 		Example1();
 
@@ -8,8 +11,6 @@ class Program {
 		Console.WriteLine("Waiting in Main.");
 		Console.ReadLine();
 	}
-
-	static Random _ran = Random.Shared;
 
 	static void Example1() {
 		// five existing timers!
@@ -22,8 +23,6 @@ class Program {
 		_timer = new Timer(DoWorKCallback, null, 0, 1000);
 
 	}
-	static int counter = 0;
-	static System.Threading.Timer _timer;
 
 	static async void DoWorKCallback(object? _) {
 		// problems occur with overlap (w
