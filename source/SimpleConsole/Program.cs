@@ -1,116 +1,100 @@
 ﻿// See https://aka.ms/new-console-template for more information
 namespace SimpleConsole;
-class Program {
-	static async Task Main() {
-		// Example1();
-		// Example2();
-		await Example3();
-		Console.WriteLine("Waiting in Main.");
-		Console.ReadLine();
-	}
-	static void Example1() {
-		// Parallel class was added to .NET before the async features were added (await, async keywords)
-		// therefore it didn't have async support.
-		// other NuGet package had implementations.
-
-		var numbers = Enumerable.Range(11, 20);
-		Console.WriteLine("Starting...");
-		ParallelOptions options = new()
-		{
-			// limit the number of tasks with ParallelOptions
-			MaxDegreeOfParallelism = 4
-		};
-
-		// note.  Parallel.ForEach is a synchronous method.
-		// The work in ForEach blocks the main thread until all tasks are complete
-		//
-		//
-
-		var result = Parallel.ForEach(source: numbers, parallelOptions: options, body: (num) =>
-		 {
-			 // a task is assigned for each item in source collection
-			 // each task runs it's delegate synchronously to perform the action
-
-			 // provide a thread safe Random instance
-			 var ran = Random.Shared;
-			 Task.Delay(ran.Next(200, 700)).Wait();
-
-			 Console.WriteLine($"ThreadID: \t{System.Environment.CurrentManagedThreadId:D2} \t {num}");
+class Program
+{
+  static async Task Main()
+  {
+  
+    Example1();
+   
+   // await Example2();
+    Console.WriteLine("Waiting in Main.");
+    Console.ReadLine();
+  }
 
 
-		 });
+  static Random _ran = Random.Shared;
 
-		Console.WriteLine("Done in Example 1!");
+   static void Example1()
+  {
+    // System.Timers.Timer
+    // System.Threading.Timer
+    // System.Web.UI.Timer
+    // System.Windows.Threading.DispatcherTimer
+    // System.Windows.Forms.Timer
+    Console.WriteLine("Threading.Timer (with callback)");
+    _timer = new Timer(DoWorKCallback, null, 0, 1000);
+ 
+  }
+  static int counter = 0;
+  static System.Threading.Timer _timer ;
 
-	}
-	static void Example2() {
+  static async void DoWorKCallback(object? _)
+  {
+    counter += 1;
+    var time  = (TimeOnly.FromDateTime(DateTime.Now)).ToLongTimeString();
+    var delaySpan = _ran.Next(500, 600);
+    int threadId = Environment.CurrentManagedThreadId;
+    Console.WriteLine($"Tick ({time}), Delay {delaySpan}");
+    Console.WriteLine($"   First... [{threadId}]");
+ 
+   
+    await Task.Delay(delaySpan);
+    Console.WriteLine($"    Second...[{threadId}]\n");
 
+    if (counter > 4)
+    {
+      _timer.Change(Timeout.Infinite, Timeout.Infinite);
+    }
+  }
 
-		var numbers = Enumerable.Range(11, 20);
-		Console.WriteLine("Starting...");
-		ParallelOptions options = new()
-		{
-			MaxDegreeOfParallelism = 4
-		};
-		// note.  Parallel.ForEachAsync is a synchronous method
-		// work blocks until all tasks are complete
-		//
-
-		Parallel.ForEachAsync(source: numbers, parallelOptions: options, body: async (num, token) =>
-		{
-			// a task is assigned for each item in source collection
-			// each task runs it's delegate synchronously to perform the action
-
-			// limit the number of tasks with ParallelOptions
-
-			// provide a thread safe Random instance
-			var ran = Random.Shared;
-
-
-
-			Task.Delay(ran.Next(200, 700)).Wait();
-
-			Console.WriteLine($"ThreadID: \t{System.Environment.CurrentManagedThreadId:D2} \t {num}");
-
-
-		});
-
-		Console.WriteLine("Done in Example2");
-	}
-
-	async static Task Example3() {
-		// multiple timers in .NET
-		// System.Timers.Timer
-		// System.Threading.Timer
-		// System.Web.UI.Timer
-		// System.Windows.Threading.DispatcherTimer
-		// System.Windows.Forms.Timer
+  async static Task Example2()
+  {
+    // multiple timers in .NET
+    // System.Timers.Timer
+    // System.Threading.Timer
+    // System.Web.UI.Timer
+    // System.Windows.Threading.DispatcherTimer
+    // System.Windows.Forms.Timer
 
 
-		// new PeriodicTimer class
-		// waits asynchronously for timer ticks.
-		// accepts a cancellation token
+    // new PeriodicTimer class
+    // waits asynchronously for timer ticks.
+    // accepts a cancellation token
 
-		// useful for avoiding callbacks.
+    // useful for avoiding callbacks.
 
-		var ran = Random.Shared;
+    Console.WriteLine("PeriodicTimer");
 
-		var waitSpan = TimeSpan.FromSeconds(1);
-		var timer = new PeriodicTimer(waitSpan);
+    var waitSpan = TimeSpan.FromSeconds(1);
+    var timer = new PeriodicTimer(waitSpan);
+    var counter = 0;
+    // use an await between each tick
+    while (await timer.WaitForNextTickAsync())
+    {
+      // scenario, we want to run timer every 1 second
+      // the work occasionally runs longer than that.
+      // awaiting the timer accommodates this issue.
 
-		// use an await between each tick
-		while (await timer.WaitForNextTickAsync())
-		{
-			// scenario, we want to run timer every 1 second
-			// the work occasionally runs longer than that.
-			// awaiting the timer accommodates this issue.
+      // no need for callback
+      counter += 1;
+      var time = (TimeOnly.FromDateTime(DateTime.Now)).ToLongTimeString();
+      var delaySpan = _ran.Next(500, 2200);
+      int threadId = Environment.CurrentManagedThreadId;
+      Console.WriteLine($"Tick ({time}), Delay {delaySpan}");
+      Console.WriteLine($"   First... [{threadId}]");
 
-			var delaySpan = ran.Next(500, 2500);
-			await Task.Delay(delaySpan);
-			Console.WriteLine($"Tick {DateTime.Now}, Delay {delaySpan}");
-		}
 
-	}
+      await Task.Delay(delaySpan);
+      Console.WriteLine($"    Second...[{threadId}]\n");
+      if (counter >4)
+      {
+        return;
+      }
+
+    }
+
+  }
 
 
 
