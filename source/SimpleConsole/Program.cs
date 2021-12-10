@@ -58,6 +58,7 @@ class Program
 
     // useful for avoiding callbacks.
     // avoids overlap problems, 
+    // no need for Auto-reset event or other thread synchronization 
 
     Console.WriteLine("PeriodicTimer");
 
