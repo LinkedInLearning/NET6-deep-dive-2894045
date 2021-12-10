@@ -5,9 +5,9 @@ class Program {
 	static System.Threading.Timer _timer;
 	static Random _ran = Random.Shared;
 	static async Task Main() {
-		Example1();
+		 Example1();
 
-		// await Example2();
+		//  await Example2();
 		Console.WriteLine("Waiting in Main.");
 		Console.ReadLine();
 	}
@@ -18,17 +18,20 @@ class Program {
 		// System.Threading.Timer (multi-thread)
 		// System.Windows.Threading.DispatcherTimer (single-thread)
 		// System.Windows.Forms.Timer (single-thread)
-		// System.Web.UI.Timer
+		// System.Web.UI.Timer (multi-thread??)
+		
 		Console.WriteLine("Threading.Timer (with callback)");
-		_timer = new Timer(DoWorKCallback, null, 0, 1000);
+		_timer = new System.Threading.Timer(callback: DoWorKCallback, state: null, 
+																				dueTime: 0, period: 1000);
 
 	}
 
 	static async void DoWorKCallback(object? _) {
-		// problems occur with overlap (w
+		// problems occur with overlap (when other threads enter this method)
+		// now we have synchronization issues
 		counter += 1;
 		var time = (TimeOnly.FromDateTime(DateTime.Now)).ToLongTimeString();
-		var delaySpan = _ran.Next(500, 600);
+		var delaySpan = _ran.Next(500, 2500);
 		int threadId = Environment.CurrentManagedThreadId;
 		Console.WriteLine($"Tick ({time}), Delay {delaySpan}");
 		Console.WriteLine($"   First... [{threadId}]");
