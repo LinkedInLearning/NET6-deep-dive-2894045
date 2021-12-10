@@ -17,11 +17,12 @@ class Program
 
    static void Example1()
   {
-    // System.Timers.Timer
-    // System.Threading.Timer
+    // five existing timers!
+    // System.Timers.Timer (multi-thread)
+    // System.Threading.Timer (multi-thread)
+    // System.Windows.Threading.DispatcherTimer (single-thread)
+    // System.Windows.Forms.Timer (single-thread)
     // System.Web.UI.Timer
-    // System.Windows.Threading.DispatcherTimer
-    // System.Windows.Forms.Timer
     Console.WriteLine("Threading.Timer (with callback)");
     _timer = new Timer(DoWorKCallback, null, 0, 1000);
  
@@ -31,6 +32,7 @@ class Program
 
   static async void DoWorKCallback(object? _)
   {
+    // problems occur with overlap (w
     counter += 1;
     var time  = (TimeOnly.FromDateTime(DateTime.Now)).ToLongTimeString();
     var delaySpan = _ran.Next(500, 600);
@@ -50,19 +52,12 @@ class Program
 
   async static Task Example2()
   {
-    // multiple timers in .NET
-    // System.Timers.Timer
-    // System.Threading.Timer
-    // System.Web.UI.Timer
-    // System.Windows.Threading.DispatcherTimer
-    // System.Windows.Forms.Timer
-
-
-    // new PeriodicTimer class
+    // PeriodicTimer class
     // waits asynchronously for timer ticks.
     // accepts a cancellation token
 
     // useful for avoiding callbacks.
+    // avoids overlap problems, 
 
     Console.WriteLine("PeriodicTimer");
 
@@ -70,6 +65,7 @@ class Program
     var timer = new PeriodicTimer(waitSpan);
     var counter = 0;
     // use an await between each tick
+    // Waits for the next tick of the timer, or for the timer to be stopped.
     while (await timer.WaitForNextTickAsync())
     {
       // scenario, we want to run timer every 1 second
