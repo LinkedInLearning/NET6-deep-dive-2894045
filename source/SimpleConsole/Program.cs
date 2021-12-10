@@ -102,8 +102,8 @@ class Program {
 		while (await timer.WaitForNextTickAsync())
 		{
 			// scenario, we want to run timer every 1 second
-			// work ocassionally runs longer than that.
-			// awaiting time accomodates this issue.
+			// the work occasionally runs longer than that.
+			// awaiting the timer accommodates this issue.
 
 			var delaySpan = ran.Next(500, 2500);
 			await Task.Delay(delaySpan);
