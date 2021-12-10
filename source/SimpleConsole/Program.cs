@@ -31,7 +31,7 @@ class Program {
 		// now we have synchronization issues
 		counter += 1;
 		var time = (TimeOnly.FromDateTime(DateTime.Now)).ToLongTimeString();
-		var delaySpan = _ran.Next(500, 2500);
+		var delaySpan = _ran.Next(500, 600);
 		int threadId = Environment.CurrentManagedThreadId;
 		Console.WriteLine($"Tick ({time}), Delay {delaySpan}");
 		Console.WriteLine($"   First... [{threadId}]");
