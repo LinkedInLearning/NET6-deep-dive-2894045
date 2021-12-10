@@ -5,7 +5,7 @@ class Program {
 	static System.Threading.Timer _timer;
 	static Random _ran = Random.Shared;
 	static async Task Main() {
-		Example1();
+		 Example1();
 
 		// await Example2();
 		Console.WriteLine("Waiting in Main.");
@@ -49,11 +49,11 @@ class Program {
 		// PeriodicTimer class
 		// does not use a callback method
 		// waits asynchronously for timer ticks.
-		// accepts a cancellation token
-
-
 		// avoids overlap problems, 
 		// no need for Auto-reset event or other thread synchronization 
+
+		// accepts a cancellation token
+
 
 		Console.WriteLine("PeriodicTimer");
 
@@ -62,13 +62,10 @@ class Program {
 		var counter = 0;
 		// use an await between each tick
 		// Waits for the next tick of the timer, or for the timer to be stopped.
+		// no need for callback
 		while (await timer.WaitForNextTickAsync())
 		{
-			// scenario, we want to run timer every 1 second
-			// the work occasionally runs longer than that.
-			// awaiting the timer accommodates this issue.
 
-			// no need for callback
 			counter += 1;
 			var time = (TimeOnly.FromDateTime(DateTime.Now)).ToLongTimeString();
 			var delaySpan = _ran.Next(500, 2200);
