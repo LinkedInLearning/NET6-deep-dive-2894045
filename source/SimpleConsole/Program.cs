@@ -14,11 +14,12 @@ class Program
     foods.Add(new Food { FoodName = "banana", Calories = 130, Category = "Fruit" });
     foods.Add(new Food { FoodName = "fig", Calories = 245, Category = "Fruit" });
 
-    var x = new FoodGenerationContext();
-    byte[] utf8Json = JsonSerializer.SerializeToUtf8Bytes(foods[0], FoodGenerationContext.Default.Food);
+  
+    byte[] utf8JsonArray = 
+      JsonSerializer.SerializeToUtf8Bytes(foods[0],
+                                          FoodGenerationContext.Default.Food);
 
-
-    Console.WriteLine(utf8Json);
+    Console.WriteLine(utf8JsonArray);
     var stringFood = JsonSerializer.Serialize(foods[1],
                                               FoodGenerationContext.Default.Food);
 
