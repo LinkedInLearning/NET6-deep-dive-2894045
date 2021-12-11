@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31911.196
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PeriodicTimer", "PeriodicTimer", "{32E43A8F-1EC6-4D68-8F5E-B2D82AC3428D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Json", "Json", "{32E43A8F-1EC6-4D68-8F5E-B2D82AC3428D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleConsole", "SimpleConsole\SimpleConsole.csproj", "{8555E214-0170-4D97-9961-8A3329FBA793}"
 EndProject
