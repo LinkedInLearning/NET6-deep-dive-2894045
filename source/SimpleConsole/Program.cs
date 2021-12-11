@@ -8,22 +8,24 @@ class Program
   static async Task Main()
   {
 
-    Food? food;
-    food = new Food { FoodName = "banana", Calories = 130 };
+   List<Food> foods=new List<Food>();
+   foods.Add (new Food { FoodName = "banana", Calories = 130, Category= "Fruit" });
+    foods.Add (new Food { FoodName = "fig", Calories = 245, Category = "Fruit" });
 
     var x = new FoodGenerationContext();
-    byte[] utf8Json = JsonSerializer.SerializeToUtf8Bytes( food,
-                                                         FoodGenerationContext.Default.Food);
+    byte[] utf8Json = JsonSerializer.SerializeToUtf8Bytes( foods[0],                                                         FoodGenerationContext.Default.Food);
 
 
     Console.WriteLine(utf8Json);
-    var stringJson = JsonSerializer.Serialize( food,FoodGenerationContext.Default.Food);
+    var stringFood = JsonSerializer.Serialize( foods[1],
+                                              FoodGenerationContext.Default.Food);
 
-    Console.WriteLine(stringJson);
+    Console.WriteLine(stringFood);
 
-    var foodAgain = JsonSerializer.Deserialize(stringJson, FoodGenerationContext.Default.Food);
+    var foodAgain = JsonSerializer.Deserialize(stringFood, FoodGenerationContext.Default.Food);
 
-
+    var stringFoods = JsonSerializer.Serialize(foods,
+                                               FoodsGenerationContext.Default);
 
 
   }

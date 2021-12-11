@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace SimpleConsole
 {
-  public class Food
-  {
-  
+  public class Food {
+    [JsonPropertyOrder(2)]
     public int Calories { get; set; }
+    [JsonPropertyOrder(1)]
     public string? FoodName { get; set; }
+    [JsonPropertyOrder(3)]
+    public string? Category { get; set; }
   }
 
 
@@ -19,6 +21,13 @@ namespace SimpleConsole
 
   [JsonSourceGenerationOptions(WriteIndented = true, PropertyNamingPolicy = JsonKnownNamingPolicy.CamelCase)]
   internal partial class FoodGenerationContext : JsonSerializerContext
+  {
+  }
+
+  [JsonSerializable(typeof(IEnumerable<Food>))]
+
+  [JsonSourceGenerationOptions(WriteIndented = true, PropertyNamingPolicy = JsonKnownNamingPolicy.CamelCase)]
+  internal partial class FoodsGenerationContext : JsonSerializerContext
   {
   }
 
