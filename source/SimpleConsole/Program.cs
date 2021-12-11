@@ -1,94 +1,36 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Text.Json;
+
 namespace SimpleConsole;
-class Program {
-	static int counter = 0;
-	static System.Threading.Timer _timer;
-	static Random _ran = Random.Shared;
-	static async Task Main() {
-		 Example1();
+class Program
+{
 
-		// await Example2();
-		Console.WriteLine("Waiting in Main.");
-		Console.ReadLine();
-	}
+  static async Task Main()
+  {
 
-	static void Example1() {
-		// five existing timers!
-		// System.Timers.Timer (multi-thread)
-		// System.Threading.Timer (multi-thread)
-		// System.Windows.Threading.DispatcherTimer (single-thread)
-		// System.Windows.Forms.Timer (single-thread)
-		// System.Web.UI.Timer (multi-thread??)
+    Food? food;
+    food = new Food { FoodName = "banana", Calories = 130 };
 
-		Console.WriteLine("Threading.Timer (with callback)");
-		_timer = new System.Threading.Timer(callback: DoWorKCallback, state: null,
-																				dueTime: 0, period: 1000);
-
-	}
-
-	static async void DoWorKCallback(object? _) {
-		// problems occur with overlap (when other threads enter this method)
-		// now we have synchronization issues
-		counter += 1;
-		var time = (TimeOnly.FromDateTime(DateTime.Now)).ToLongTimeString();
-		var delaySpan = _ran.Next(500, 2200);
-		int threadId = Environment.CurrentManagedThreadId;
-		Console.WriteLine($"Tick ({time}), Delay {delaySpan}");
-		Console.WriteLine($"   First... [{threadId}]");
-
-		await Task.Delay(delaySpan);
-		Console.WriteLine($"    Second...[{threadId}]\n");
-
-		if (counter > 4)
-		{
-			_timer.Change(Timeout.Infinite, Timeout.Infinite);
-		}
-	}
-
-	async static Task Example2() {
-		// PeriodicTimer class
-		// does not use a callback method
-		// waits asynchronously for timer ticks.
-		// avoids overlap problems, 
-		// no need for Auto-reset event or other thread synchronization 
-
-		// accepts a cancellation token
+    var x = new FoodGenerationContext();
+    byte[] utf8Json = JsonSerializer.SerializeToUtf8Bytes( food,
+                                                         FoodGenerationContext.Default.Food);
 
 
-		Console.WriteLine("PeriodicTimer");
+    Console.WriteLine(utf8Json);
+    var stringJson = JsonSerializer.Serialize( food,FoodGenerationContext.Default.Food);
 
-		var waitSpan = TimeSpan.FromSeconds(1);
-		var timer = new PeriodicTimer(waitSpan);
-		var counter = 0;
-		// use an await between each tick
-		// Waits for the next tick of the timer, or for the timer to be stopped.
-		// no need for callback
-		while (await timer.WaitForNextTickAsync())
-		{
+    Console.WriteLine(stringJson);
 
-			counter += 1;
-			var time = (TimeOnly.FromDateTime(DateTime.Now)).ToLongTimeString();
-			var delaySpan = _ran.Next(500, 2200);
-			int threadId = Environment.CurrentManagedThreadId;
-			Console.WriteLine($"Tick ({time}), Delay {delaySpan}");
-			Console.WriteLine($"   First... [{threadId}]");
+    var foodAgain = JsonSerializer.Deserialize(stringJson, FoodGenerationContext.Default.Food);
 
-			await Task.Delay(delaySpan);
-			Console.WriteLine($"    Second...[{threadId}]\n");
-			if (counter > 4)
-			{
-				return;
-			}
 
-		}
 
-	}
+
+  }
+
+
 
 }
-
-
-
-
 
 
 

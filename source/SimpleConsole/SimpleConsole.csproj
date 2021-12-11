@@ -8,4 +8,23 @@
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
   </PropertyGroup>
 
+	<PropertyGroup>
+
+		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+
+		<CompilerGeneratedFilesOutputPath>GeneratedFiles</CompilerGeneratedFilesOutputPath>
+
+	</PropertyGroup>
+
+
+	<ItemGroup>
+
+		<Compile Remove="$(CompilerGeneratedFilesOutputPath)/*/**/*.cs" />
+
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <PackageReference Include="System.Text.Json" Version="6.0.0" />
+	</ItemGroup>
 </Project>
