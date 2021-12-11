@@ -24,8 +24,9 @@ class Program
 
     var foodAgain = JsonSerializer.Deserialize(stringFood, FoodGenerationContext.Default.Food);
 
-    var stringFoods = JsonSerializer.Serialize(foods,
-                                               FoodsGenerationContext.Default);
+		var stringFoods = JsonSerializer.Serialize(foods,
+																							 FoodsGenerationContext.Default.IEnumerableFood);
+    Console.WriteLine(stringFoods);
 
 
   }
