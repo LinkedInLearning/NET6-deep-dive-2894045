@@ -33,7 +33,9 @@ class Program
     Console.WriteLine("Original JSON");
     Console.WriteLine(stringFoods);
 
+    Console.WriteLine(foodAgain.FoodName); // use the class
 
+    
     // use writeable DOM to modify a node
     var topNode = JsonNode.Parse(stringFoods);
 
