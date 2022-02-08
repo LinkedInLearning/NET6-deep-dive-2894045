@@ -1,7 +1,10 @@
 # .NET 6 Deep Dive
-This is the repository for the LinkedIn Learning course `.NET 6 Deep Dive`. The full course is available from [LinkedIn Learning][lil-course-url].
+This is the repository for the LinkedIn Learning course .NET 6 Deep Dive. The full course is available from [LinkedIn Learning][lil-course-url].
 
-_See the readme file in the main branch for updated instructions and information._
+![.NET 6 Deep Dive][lil-thumbnail-url] 
+
+This course takes a deep look into the changes to .NET with the release of .NET 6, the latest release of the Microsoft cross-platform, open-source framework. Instructor Walt Ritscher takes you through changes to .NET commands, language improvements to C++ and C#, web applications like Blazor and Visual Studio, and targeting multiple platforms. He also shows you how to edit code and use the Hot Reload feature to apply changes without restarting the application.
+
 ## Instructions
 This repository has branches for each of the videos in the course. You can use the branch pop up menu in github to switch to a specific branch and take a look at the course at that stage, or you can add `/tree/BRANCH_NAME` to the URL to go to the branch you want to access.
 
@@ -27,8 +30,15 @@ To resolve this issue:
 3. [Course-specific instructions]
 
 
-[0]: # (Replace these placeholder URLs with actual course URLs)
+### Instructor
 
-[lil-course-url]: https://www.linkedin.com/learning/
-[lil-thumbnail-url]: http://
+Walt Ritscher 
+                            
+Senior Staff Author
 
+                            
+
+Check out my other courses on [LinkedIn Learning](https://www.linkedin.com/learning/instructors/walt-ritscher).
+
+[lil-course-url]: https://www.linkedin.com/learning/dot-net-6-deep-dive
+[lil-thumbnail-url]: https://cdn.lynda.com/course/3011647/3011647-1643913748473-16x9.jpg
